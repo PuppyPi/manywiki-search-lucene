@@ -456,6 +456,12 @@ public class LuceneSearchProvider implements SearchProvider {
         return findPages( query, FLAG_CONTEXTS, wikiContext );
     }
 
+    /** {@inheritDoc} */
+    @Override
+    public Collection< SearchResult > findPages2( final String query, final Context wikiContext ) throws ProviderException {
+    	return findPages( query, 0, wikiContext );
+    }
+    
     /** Create contexts also. Generating contexts can be expensive, so they're not on by default. */
     public static final int FLAG_CONTEXTS = 0x01;
 
