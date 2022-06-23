@@ -67,7 +67,7 @@ import org.apache.wiki.pages.PageManager;
 import org.apache.wiki.util.ClassUtil;
 import org.apache.wiki.util.FileUtil;
 import org.apache.wiki.util.TextUtil;
-
+import rebound.annotations.semantic.meta.dependencies.DependencyDirectory;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -89,6 +89,7 @@ import java.util.concurrent.Executors;
  *
  * @since 2.2.21.
  */
+@DependencyDirectory("org/apache/lucene/analysis")  //Todo-PP put this into Lucene itself???  Eh it's probably better to leave that as pristine as possible X'D
 public class LuceneSearchProvider implements SearchProvider {
 
     protected static final Logger log = LogManager.getLogger( LuceneSearchProvider.class );
@@ -103,7 +104,7 @@ public class LuceneSearchProvider implements SearchProvider {
     private static final String PROP_LUCENE_INDEXDELAY   = "jspwiki.lucene.indexdelay";
     private static final String PROP_LUCENE_INITIALDELAY = "jspwiki.lucene.initialdelay";
 
-    private String m_analyzerClass = "org.apache.lucene.analysis.standard.ClassicAnalyzer";
+    private String m_analyzerClass = org.apache.lucene.analysis.standard.ClassicAnalyzer.class.getName();  //Semantic dependency!
 
     private static final String LUCENE_DIR = "lucene";
 
