@@ -68,6 +68,7 @@ import org.apache.wiki.util.ClassUtil;
 import org.apache.wiki.util.FileUtil;
 import org.apache.wiki.util.TextUtil;
 import rebound.annotations.semantic.meta.dependencies.DependencyDirectory;
+import rebound.annotations.semantic.meta.dependencies.DependencyFile;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -90,6 +91,7 @@ import java.util.concurrent.Executors;
  * @since 2.2.21.
  */
 @DependencyDirectory("org/apache/lucene/analysis")  //Todo-PP put this into Lucene itself???  Eh it's probably better to leave that as pristine as possible X'D
+@DependencyFile("META-INF/services/org.apache.lucene.index.SortFieldProvider")  //Todo-PP put this into Lucene itself???  Eh it's probably better to leave that as pristine as possible X'D
 public class LuceneSearchProvider implements SearchProvider {
 
     protected static final Logger log = LogManager.getLogger( LuceneSearchProvider.class );
